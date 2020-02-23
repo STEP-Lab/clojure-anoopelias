@@ -33,3 +33,9 @@
     (is (= :aswathama (yudishtira (= 2 3)))))
   (testing "falsey values"
     (is (= :aswathama (yudishtira nil)))))
+
+(deftest duplicated-first
+  (testing "list"
+    (is (= [1 1 2] (duplicate-first [1 2]))))
+  (testing "empty list"
+    (is (= nil (duplicate-first [])))))
