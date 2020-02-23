@@ -39,3 +39,17 @@
     (is (= [1 1 2] (duplicate-first [1 2]))))
   (testing "empty list"
     (is (= nil (duplicate-first [])))))
+
+(deftest test-five-point-someone
+  (testing "chetan"
+    (is (= :chetan-bhagat (five-point-someone 1 5))))
+  (testing "still chetan"
+    (is (= :chetan-bhagat (five-point-someone 5 5))))
+  (testing "satan"
+    (is (= :satan-bhagat (five-point-someone 5 1))))
+  (testing "still satan"
+    (is (= :satan-bhagat (five-point-someone 5 9))))
+  (testing "greece"
+    (is (= :greece (five-point-someone 6 1))))
+  (testing "universe"
+    (is (= :universe (five-point-someone 1 6)))))
