@@ -23,3 +23,13 @@
     (is (= nil (harishchandra (= 2 3)))))
   (testing "falsey values"
     (is (= nil (harishchandra nil)))))
+
+(deftest yudishtiran
+  (testing "truethy values"
+    (is (= 2 (yudishtira 2))))
+  (testing "true itself"
+    (is (= true (yudishtira (= 2 2)))))
+  (testing "false"
+    (is (= :aswathama (yudishtira (= 2 3)))))
+  (testing "falsey values"
+    (is (= :aswathama (yudishtira nil)))))

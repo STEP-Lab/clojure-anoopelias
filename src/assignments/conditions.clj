@@ -27,8 +27,8 @@
   Falsy values(false and nil) return :ashwathama"
   {:level        :easy
    :use          '[if-let]
-   :implemented? false}
-  [x] (if x x nil))
+   :implemented? true}
+  [x] (if x x :aswathama))
 
 (defn duplicate-first
   "Returns coll with the first element duplicated.
