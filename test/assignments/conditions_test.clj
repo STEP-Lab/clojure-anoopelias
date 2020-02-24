@@ -103,3 +103,9 @@
     (is (= :empty-map (zero-aliases {}))))
   (testing "<>"
     (is (= :empty-string (zero-aliases "")))))
+
+(deftest test-zero-separated-palindrome
+  (testing "1 2 3"
+    (is (= '(4 3 2 0 2 3 4) (zero-separated-palindrome [1 2 3]))))
+  (testing "empty set"
+    (is (= '(0) (zero-separated-palindrome [])))))
