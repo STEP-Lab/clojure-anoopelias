@@ -20,7 +20,7 @@
   {:level        :easy
    :use          '[when-let]
    :implemented? true}
-  [x] (if x x nil))
+  [x] (when-let [n x] n))
 
 (defn yudishtira
   "Only returns truthy values as themselves.
