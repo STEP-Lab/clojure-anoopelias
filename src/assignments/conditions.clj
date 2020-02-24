@@ -62,7 +62,7 @@
   {:level        :medium
    :use          '[condp filter]
    :alternates   '[if cond]
-   :implemented? false}
+   :implemented? true}
   [coll] (let [sublists (fn [xs n]
                  (apply map list (map #(drop % xs) (range n))))
                count-of-in (fn [x xs]
