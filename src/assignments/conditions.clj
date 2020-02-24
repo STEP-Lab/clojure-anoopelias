@@ -12,7 +12,7 @@
   {:level        :easy
    :use          '[if-not zero?]
    :implemented? true}
-  [x y] (if (= y 0) :infinite (/ x y)))
+  [x y] (if-not (zero? y) (/ x y) :infinite))
 
 (defn harishchandra
   "Only returns truthy values as themselves.
