@@ -77,3 +77,15 @@
     (is (= '(0 1 2) (repeat-and-truncate (range 10) false true 3))))
   (testing "nothing"
     (is (= '(0 1 2) (repeat-and-truncate (range 3) false false 3)))))
+
+(deftest ordered-in-words
+  (testing "x > y"
+    (is (= [:x-greater-than-y] (order-in-words 6 3 5))))
+  (testing "y > z"
+    (is (= [:y-greater-than-z] (order-in-words 6 7 5))))
+  (testing "z > x"
+    (is (= [:z-greater-than-x] (order-in-words 2 3 4))))
+  (testing "x > y and y > z"
+    (is (= [:x-greater-than-y :y-greater-than-z] (order-in-words 4 3 2))))
+  (testing "x > y and z > x"
+    (is (= [:x-greater-than-y :z-greater-than-x] (order-in-words 4 3 5)))))
