@@ -102,7 +102,9 @@
   (testing "{}"
     (is (= :empty-map (zero-aliases {}))))
   (testing "<>"
-    (is (= :empty-string (zero-aliases "")))))
+    (is (= :empty-string (zero-aliases ""))))
+  (testing "<>"
+    (is (= :not-zero (zero-aliases 5)))))
 
 (deftest test-zero-separated-palindrome
   (testing "1 2 3"

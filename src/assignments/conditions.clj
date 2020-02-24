@@ -120,7 +120,8 @@
       '() :empty
       #{} :empty-set
       {} :empty-map
-      "" :empty-string))
+      "" :empty-string
+      :not-zero))
 
 (defn zero-separated-palindrome
   "Given a sequence of numbers, increment the list
