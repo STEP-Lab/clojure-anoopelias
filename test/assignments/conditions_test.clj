@@ -67,3 +67,13 @@
     (is (= :durga (conditions-apply [:a :b :c :d :e :f]))))
   (testing "cleopatra"
     (is (= :cleopatra (conditions-apply [[2 3] [4 5]])))))
+
+(deftest repeated-and-truncated
+  (testing "repeat and truncate"
+    (is (= '(0 1 2 3 0 1) (repeat-and-truncate (range 4) true true 6))))
+  (testing "repeat only"
+    (is (= '(0 1 2 0 1 2) (repeat-and-truncate (range 3) true false 6))))
+  (testing "truncate only"
+    (is (= '(0 1 2) (repeat-and-truncate (range 10) false true 3))))
+  (testing "nothing"
+    (is (= '(0 1 2) (repeat-and-truncate (range 3) false false 3)))))
