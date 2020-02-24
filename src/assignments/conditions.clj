@@ -53,6 +53,14 @@
           (> x y) :greece
           :else :universe))
 
+(defn sublists [xs n]
+  (apply map list
+         (map #(drop % xs) (range n))))
+(defn count-of-in [x xs]
+  (count (filter
+           (partial = x)
+           (sublists xs (count x)))))
+
 (defn conditions-apply
   "Given a collection of any length, returns:
   :wonder-woman if collection has a single occurrence of 1 and 3 in that order
@@ -63,7 +71,11 @@
    :use          '[condp filter]
    :alternates   '[if cond]
    :implemented? false}
-  [coll])
+  [coll] (condp = 1
+           (count-of-in [1 3] coll) :wonder-woman
+           (count-of-in [:a :b :c] coll) :durga
+           (count-of-in [[2 3] [4 5]] coll) :cleopatra
+           :tuntun))
 
 (defn repeat-and-truncate
   "Given coll and options to repeat and truncate

@@ -53,3 +53,17 @@
     (is (= :greece (five-point-someone 6 1))))
   (testing "universe"
     (is (= :universe (five-point-someone 1 6)))))
+
+(deftest conditions-applied
+  (testing "wonder-woman"
+    (is (= :wonder-woman (conditions-apply [1 2 1 3]))))
+  (testing "no match"
+    (is (= :tuntun (conditions-apply [1 2 1 4 :a :b :d [4 5] [2 3]]))))
+  (testing "multiple (1 3), no wonder-woman"
+    (is (= :tuntun (conditions-apply [1 3 1 3]))))
+  (testing "wonder-woman before anyone else"
+    (is (= :wonder-woman (conditions-apply [:a :b :c [2 3] [4 5] 1 3]))))
+  (testing "durga"
+    (is (= :durga (conditions-apply [:a :b :c :d :e :f]))))
+  (testing "cleopatra"
+    (is (= :cleopatra (conditions-apply [[2 3] [4 5]])))))
