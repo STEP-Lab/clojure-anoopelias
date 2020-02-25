@@ -64,7 +64,7 @@
    :alternates   '[if cond]
    :implemented? true}
   [coll] (condp
-           (fn [x xs] (= (filter #(some #{%} x) xs) x)) coll
+           #(= (filter (into #{} %1) %2) %1) coll
            [1 3] :wonder-woman
            [:a :b :c] :durga
            [[2 3] [4 5]] :cleopatra
