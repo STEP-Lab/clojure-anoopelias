@@ -56,7 +56,7 @@
 
 (deftest conditions-applied
   (testing "wonder-woman"
-    (is (= :wonder-woman (conditions-apply [1 2 1 3]))))
+    (is (= :wonder-woman (conditions-apply [0 1 0 3]))))
   (testing "no match"
     (is (= :tuntun (conditions-apply [1 2 1 4 :a :b :d [4 5] [2 3]]))))
   (testing "multiple (1 3), no wonder-woman"

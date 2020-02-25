@@ -63,15 +63,12 @@
    :use          '[condp filter]
    :alternates   '[if cond]
    :implemented? true}
-  [coll] (let [sublists (fn [xs n]
-                 (apply map list (map #(drop % xs) (range n))))
-               count-of-in (fn [x xs]
-                 (count (filter (partial = x) (sublists xs (count x)))))]
-    (condp #(= (count-of-in %1 coll) %2) 1
+  [coll] (condp
+           (fn [x xs] (= (filter #(some #{%} x) xs) x)) coll
            [1 3] :wonder-woman
            [:a :b :c] :durga
            [[2 3] [4 5]] :cleopatra
-           :tuntun)))
+           :tuntun))
 
 (defn repeat-and-truncate
   "Given coll and options to repeat and truncate
