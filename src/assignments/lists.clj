@@ -1,5 +1,11 @@
 (ns assignments.lists)
 
+(defn map-colls [f colls]
+  (loop [xs colls ret []]
+    (if (empty? xs) ret
+      (recur (rest xs)
+             (conj ret (f (first xs)))))))
+
 (defn map'
   "Implement a non-lazy version of map that accepts a
   mapper function and several collections. The output
@@ -7,11 +13,12 @@
   {:level        :medium
    :use          '[loop recur]
    :dont-use     '[map]
-   :implemented? false}
-  [f & colls] (loop [x (first colls) res []]
-                (if (empty? x)
-                  res
-                  (recur (rest x) (conj res (f (first x)))))))
+   :implemented? true}
+  [f & colls]
+    (loop [x colls ret []]
+      (if (some empty? x) ret
+        (recur (map-colls rest x)
+               (conj ret (apply f (map-colls first x)))))))
 
 (defn filter'
   "Implement a non-lazy version of filter that accepts a
