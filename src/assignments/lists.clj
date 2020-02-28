@@ -1,5 +1,5 @@
 (ns assignments.lists)
-
+true
 (defn map-colls [f colls]
   (loop [xs colls ret []]
     (if (empty? xs) ret
@@ -27,7 +27,7 @@
   {:level        :easy
    :use          '[loop recur]
    :dont-use     '[filter]
-   :implemented? false}
+   :implemented? true}
   [pred coll]
   (loop [xs coll ret []]
     (if (empty? xs) ret
