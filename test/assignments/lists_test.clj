@@ -35,4 +35,12 @@
       (testing "sum one element"
         (is (= 1 (reduce' + [1]))))
       (testing "sum no elements"
-        (is (= 0 (reduce' + []))))))
+        (is (= 0 (reduce' + [])))))
+
+  (testing "count"
+    (testing "count 2 elements"
+      (is (= 2 (count' [1 3]))))
+    (testing "count 1 element"
+      (is (= 1 (count' [1]))))
+    (testing "count no elements"
+      (is (= 0 (count' []))))))
