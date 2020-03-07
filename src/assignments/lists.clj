@@ -80,7 +80,7 @@ true
   {:level        :easy
    :use          '[loop recur and]
    :dont-use     '[every?]
-   :implemented? false}
+   :implemented? true}
   ([pred coll]
    (loop [xs coll]
      (if (empty? xs) true
@@ -96,7 +96,7 @@ true
   {:level        :easy
    :use          '[loop recur or]
    :dont-use     '[some]
-   :implemented? false}
+   :implemented? true}
   ([pred coll]
    (loop [xs coll]
      (if (empty? xs) false
@@ -108,7 +108,7 @@ true
   {:level        :easy
    :use          '[partition every? partial apply <=]
    :dont-use     '[loop recur]
-   :implemented? false}
+   :implemented? true}
   [coll] (every? (partial apply <=) (partition 2 2 coll)))
 
 (defn distinct'
