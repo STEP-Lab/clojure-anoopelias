@@ -97,7 +97,11 @@ true
    :use          '[loop recur or]
    :dont-use     '[some]
    :implemented? false}
-  ([pred coll]))
+  ([pred coll]
+   (loop [xs coll]
+     (if (empty? xs) false
+       (or (pred (first xs))
+            (recur (rest xs)))))))
 
 (defn ascending?
   "Verify if every element is greater than or equal to its predecessor"

@@ -71,4 +71,10 @@
     (testing "every number is even"
       (is (= true (every?' even? '(2 4)))))
     (testing "at least one number is not even"
-      (is (= false (every?' even? '(2 5 4)))))))
+      (is (= false (every?' even? '(2 5 4))))))
+
+  (testing "some"
+    (testing "some number is even"
+      (is (= true (some?' even? '(1 4 9)))))
+    (testing "no number is even"
+      (is (= false (some?' even? '(1 3 9)))))))
