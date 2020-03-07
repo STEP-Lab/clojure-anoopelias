@@ -109,7 +109,7 @@ true
    :use          '[partition every? partial apply <=]
    :dont-use     '[loop recur]
    :implemented? false}
-  [coll])
+  [coll] (every? (partial apply <=) (partition 2 2 coll)))
 
 (defn distinct'
   "Implement your own lazy sequence version of distinct which returns

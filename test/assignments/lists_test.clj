@@ -77,4 +77,10 @@
     (testing "some number is even"
       (is (= true (some?' even? '(1 4 9)))))
     (testing "no number is even"
-      (is (= false (some?' even? '(1 3 9)))))))
+      (is (= false (some?' even? '(1 3 9))))))
+
+  (testing "ascending"
+    (testing "ascending sequence"
+      (is (= true (ascending? '(1 4 9))))
+    (testing "non ascending sequence"
+      (is (= false (ascending? '(4 1 9))))))))
