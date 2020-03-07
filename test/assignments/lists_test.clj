@@ -2,6 +2,16 @@
   (:require [clojure.test :refer :all]
             [assignments.lists :refer :all]))
 
+
+(defn set-of? [x y]
+  "Checks if two collections x and y contains same set
+  of elements in no particular order"
+  (let [x (set x)
+        y (set y)]
+    (= (count x)
+       (count y)
+       (count (filter x y)))))
+
 (deftest lists
   (testing "map"
     (testing "identity with single coll"
@@ -43,4 +53,16 @@
     (testing "count 1 element"
       (is (= 1 (count' [1]))))
     (testing "count no elements"
-      (is (= 0 (count' []))))))
+      (is (= 0 (count' [])))))
+
+  (testing "reverse"
+    (testing "reverse a list"
+      (is (= [3 1] (reverse' '(1 3)))))
+    (testing "reverse a vector"
+      (is (= [6 3 1] (reverse' [1 3 6]))))
+    (testing "try reversing something other than a collection"
+      (is (= nil (reverse' 1))))
+    (testing "reverse a set"
+      (is (set-of? #{1 5 3} (reverse #{1 5 3}))))
+    (testing "reverse a map"
+      (is (set-of? #{[1 5] [4 6]} (reverse {1 5 4 6}))))))
