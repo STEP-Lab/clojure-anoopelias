@@ -65,4 +65,10 @@
     (testing "reverse a set"
       (is (set-of? #{1 5 3} (reverse #{1 5 3}))))
     (testing "reverse a map"
-      (is (set-of? #{[1 5] [4 6]} (reverse {1 5 4 6}))))))
+      (is (set-of? #{[1 5] [4 6]} (reverse {1 5 4 6})))))
+
+  (testing "every"
+    (testing "every number is even"
+      (is (= true (every?' even? '(2 4)))))
+    (testing "at least one number is not even"
+      (is (= false (every?' even? '(2 5 4)))))))

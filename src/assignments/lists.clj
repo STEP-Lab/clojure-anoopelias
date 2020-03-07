@@ -81,7 +81,12 @@ true
    :use          '[loop recur and]
    :dont-use     '[every?]
    :implemented? false}
-  ([pred coll]))
+  ([pred coll]
+   (loop [xs coll]
+     (if (empty? xs) true
+       (and (pred (first xs))
+            (recur (rest xs)))))))
+
 
 (defn some?'
   "Implement your own version of some that checks if at least one
